@@ -16,11 +16,15 @@ require("./assets/css/global.css");
 
 var _axios = _interopRequireDefault(require("axios"));
 
+var _vueTableWithTreeGrid = _interopRequireDefault(require("vue-table-with-tree-grid"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // 导入字体图标
 // 导入全局样式表
-// 配置请求的跟路径
+_vue["default"].component('tree-table', _vueTableWithTreeGrid["default"]); // 配置请求的跟路径
+
+
 _axios["default"].defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/';
 
 _axios["default"].interceptors.request.use(function (config) {

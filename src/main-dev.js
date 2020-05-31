@@ -16,12 +16,23 @@ import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
 
+
+import 'nprogress/nprogress.css'
+import nProgress from 'nprogress'
+
 Vue.component('tree-table', TreeTable)
 // 配置请求的跟路径
 axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
 axios.interceptors.request.use(config => {
   // console.log(config);
+  nProgress.start()
   config.headers.Authorization = sessionStorage.getItem('token')
+  return config
+
+})
+axios.interceptors.response.use(config => {
+  // console.log(config);
+  nProgress.done()
   return config
 
 })

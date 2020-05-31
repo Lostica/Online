@@ -229,10 +229,8 @@ export default {
         form.attrs = this.addForm.attrs;
         console.log(form);
         const { data: res } = await this.$http.post("goods", form);
-        if (res.meta.status !== 201) {
-          console.log(res);
-          return this.$message.error(res.meta.msg);
-        }
+        if (res.meta.status !== 201) return this.$message.error(res.meta.msg);
+
         this.$message.success(res.meta.msg);
         this.$router.push("/goods");
       });

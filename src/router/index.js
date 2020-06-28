@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../components/Login.vue'
+// import Login from '../components/Login.vue'
+const Login = () => import(/*webpackChunkName:'login_home_welcome'*/ '../components/Login.vue')
 import Home from '../components/Home.vue'
 import Welcome from '../components/Welcome.vue'
 import Users from '../components/users/Users.vue'
